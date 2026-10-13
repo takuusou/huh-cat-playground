@@ -1,2 +1,51 @@
-# huh-cat-playground
-A hand-drawn interactive cat playground: feed 8 floating kibbles, press PUMP, hear Huh, and break the ceiling. Personal design and frontend portfolio project.
+# Huh Cat — Interactive Playground
+
+一个以原创手绘猫咪为主角的互动网页小作品。它从「做一个好玩的主页」出发，也作为我的个人作品介绍：把插画、界面设计、动画、声音和前端交互放在同一个页面里。
+
+## 首页怎么玩
+
+- 页面打开时，猫咪闭着嘴，8 个猫粮在空中漂浮。
+- 点击猫粮，猫粮会飞向猫咪的嘴巴并消失；同一个猫粮不能重复喂。
+- 点击 **PUMP**，按钮出现按压反馈，猫咪播放 Huh 动画和普通音效，绿色 K 线短暂微涨。
+- 普通动画播放过程中再次点击 PUMP，猫咪动画会从头重新播放。
+- 喂完全部 8 个猫粮后再点击 PUMP，会播放另一段 Huh 音效，K 线冲向天花板并触发破口效果。
+- K 线随后回落，猫粮重新出现，回到下一轮互动。
+
+## 体验与项目介绍
+
+- [打开网站体验](https://huh-cat.com)
+- [Notion 项目介绍](https://wide-nest-95c.notion.site/Huh-Cat-PUMP-3f815452b8448194b0fecd7fece758ca)
+
+## 这个作品展示什么
+
+原创插画与 UI 设计、Figma 到网页的视觉落地、桌面和移动端布局，以及动画和音效共同组成的完整互动循环。页面下方保留手绘图表、项目介绍和猫咪表情插画，形成一个有自己视觉语言的单页作品。
+
+我负责原始插画、UI 和原站设计开发；当前版本在 AI 辅助下重建、调试并部署。项目规模不大，重点是有趣、可玩，以及呈现设计与实现之间的连接。
+
+## 技术与运行
+
+React 19、TypeScript、CSS、vinext / Vite，部署配置面向 Cloudflare Workers。网站使用项目本地图片、字体、GIF 和音频。音频使用 Web Audio API 预解码，交互由 React state、CSS 动画与计时器驱动。
+
+要求 Node.js >=22.13.0。
+
+```bash
+npm ci
+npm run dev
+```
+
+检查与生产构建：
+
+```bash
+npm test
+npm run lint
+```
+
+## 公开版说明
+
+本仓库作为个人互动作品展示，真实合约地址已移除，地址框为空。源码、说明和测试均不包含真实 CA；不上传开发日志、环境文件、凭据或原项目 Git 历史。线上站点可能有独立内容，本仓库以公开作品版为准。
+
+手绘插画和 UI 为作者原创。素材中的品牌名称是原页面设计内容，不代表相关机构对本作品的赞助或背书。仓库公开供查看与学习，未额外授予插画、音频或字体的再分发许可。
+
+## 当前上传范围
+
+当前仓库上传完整前端源码、样式、构建配置和测试。图片、GIF、字体和音频二进制素材暂未包含，因此仅克隆本仓库还不能完整展示所有画面和声音；完整效果请打开上面的在线网站。

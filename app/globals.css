@@ -1,0 +1,524 @@
+:root {
+  color-scheme: light;
+}
+
+@font-face {
+  font-family: "Slackey";
+  src: url("/huh-assets/Cy4Kq9Y_.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #f3f3f3;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  display: block;
+}
+
+.figma-site {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+.desktop-design,
+.mobile-design {
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.desktop-design {
+  max-width: 1920px;
+}
+
+.mobile-design {
+  display: none;
+}
+
+.figma-hero {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  background: #fff;
+}
+
+.figma-hero-desktop {
+  aspect-ratio: 16 / 9;
+}
+
+.figma-hero-mobile {
+  aspect-ratio: 375 / 745;
+}
+
+.figma-layer,
+.figma-hero-art {
+  position: absolute;
+}
+
+.figma-hero-art {
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.header-icons {
+  position: absolute;
+  z-index: 9;
+  top: 6.6%;
+  right: 6.1%;
+  display: flex;
+  width: 13.2%;
+  height: 5.1%;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.header-icon {
+  display: grid;
+  height: 88%;
+  place-items: center;
+  overflow: visible;
+  transition: scale 180ms cubic-bezier(.2, .75, .2, 1);
+}
+
+.header-icon img {
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+}
+
+.header-icon:hover {
+  scale: 1.22;
+}
+
+.mobile-header-x {
+  position: absolute;
+  z-index: 9;
+  top: 4.1%;
+  right: 4.2%;
+  display: grid;
+  width: 13%;
+  aspect-ratio: 1;
+  place-items: center;
+  overflow: visible;
+  background: #fff;
+  transition: scale 180ms cubic-bezier(.2, .75, .2, 1);
+}
+
+.mobile-header-x img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+
+.mobile-header-x:hover {
+  scale: 1.15;
+}
+
+.hero-cat-idle,
+.hero-cat-gif {
+  z-index: 3;
+  object-fit: fill;
+}
+
+.hero-cat-gif {
+  z-index: 4;
+}
+
+.mobile-kibble-mask {
+  position: absolute;
+  z-index: 2;
+  background: #fff;
+}
+
+.kibble-hitbox,
+.pump-hitbox {
+  position: absolute;
+  cursor: pointer;
+}
+
+.kibble-hitbox {
+  z-index: 8;
+}
+
+.pump-hitbox {
+  z-index: 12;
+  border-radius: 50%;
+  background: #cdcdcd;
+  overflow: visible;
+  user-select: none;
+}
+
+.pump-hitbox:disabled {
+  cursor: default;
+}
+
+.pump-button-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.pump-button-pressed {
+  opacity: 0;
+}
+
+.pump-hitbox:active .pump-button-normal {
+  opacity: 0;
+}
+
+.pump-hitbox:active .pump-button-pressed {
+  opacity: 1;
+}
+
+.pump-hitbox.has-feedback .pump-button-normal {
+  animation: pump-normal-feedback 520ms linear;
+}
+
+.pump-hitbox.has-feedback .pump-button-pressed {
+  animation: pump-pressed-feedback 520ms linear;
+}
+
+.kibble-floater,
+.kibble-flight {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.kibble-floater {
+  z-index: 1;
+  animation: kibble-float 3s ease-in-out infinite;
+  animation-delay: var(--float-delay);
+}
+
+.kibble-flight {
+  object-fit: contain;
+  pointer-events: none;
+  opacity: 1;
+  scale: 1;
+  transition: scale 160ms ease-out;
+}
+
+.kibble-hitbox.is-eaten {
+  pointer-events: none;
+}
+
+.kibble-hitbox:not(.is-eaten):hover .kibble-floater,
+.kibble-hitbox.is-eaten .kibble-floater {
+  animation-play-state: paused;
+}
+
+.kibble-hitbox:not(.is-eaten):hover .kibble-flight {
+  scale: 1.12;
+}
+
+.kibble-hitbox.is-eaten .kibble-flight {
+  animation: feed-to-cat 720ms cubic-bezier(.2, .76, .16, 1) forwards;
+}
+
+.figma-kline {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  pointer-events: none;
+}
+
+.figma-kline-wick,
+.figma-kline-body {
+  position: absolute;
+  display: block;
+  background: #00d189;
+  transition: height 280ms ease-out;
+}
+
+.figma-hero-desktop .figma-kline-wick {
+  left: 56.4583%;
+  bottom: 28.8889%;
+  width: .2604%;
+  height: 14.9074%;
+}
+
+.figma-hero-desktop .figma-kline-body {
+  left: 55.4688%;
+  bottom: 30.1852%;
+  width: 2.2917%;
+  height: 7.1296%;
+}
+
+.figma-hero-mobile .figma-kline-wick {
+  left: 66.1333%;
+  bottom: 30.7383%;
+  width: 1.0667%;
+  height: 11.0067%;
+}
+
+.figma-hero-mobile .figma-kline-body {
+  left: 63.7333%;
+  bottom: 31.5436%;
+  width: 6.4%;
+  height: 5.2349%;
+}
+
+.figma-hero-desktop.line-small .figma-kline-wick {
+  height: 17.227%;
+}
+
+.figma-hero-desktop.line-small .figma-kline-body {
+  height: 8.5574%;
+}
+
+.figma-hero-mobile.line-small .figma-kline-wick {
+  height: 13.2%;
+}
+
+.figma-hero-mobile.line-small .figma-kline-body {
+  height: 6.6%;
+}
+
+.pump-burst .figma-kline-wick,
+.pump-burst .figma-kline-body {
+  transition-duration: 1000ms;
+}
+
+.figma-hero-desktop.line-top .figma-kline-wick {
+  height: 99.0815%;
+}
+
+.figma-hero-desktop.line-top .figma-kline-body {
+  height: 92.3259%;
+}
+
+.figma-hero-mobile.line-top .figma-kline-wick {
+  height: 70%;
+}
+
+.figma-hero-mobile.line-top .figma-kline-body {
+  height: 64%;
+}
+
+.animated-ceiling-break {
+  z-index: 6;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 100ms linear;
+}
+
+.figma-hero-desktop .animated-ceiling-break {
+  top: 0;
+  left: 51.1979%;
+  width: 10.4688%;
+  height: 18.6111%;
+}
+
+.figma-hero-mobile .animated-ceiling-break {
+  top: -8.4564%;
+  left: 54.1333%;
+  width: 23.4667%;
+  height: 11.8121%;
+}
+
+.pump-burst.line-top .animated-ceiling-break {
+  opacity: 1;
+}
+
+.body-stage {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  background: #fff;
+}
+
+.body-stage-desktop {
+  aspect-ratio: 1920 / 5149;
+}
+
+.body-stage-mobile {
+  aspect-ratio: 375 / 2046;
+}
+
+.figma-body-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.body-overlay,
+.contract-address,
+.contract-copy-button {
+  position: absolute;
+}
+
+.body-overlay {
+  z-index: 2;
+  object-fit: fill;
+}
+
+.contract-address {
+  z-index: 3;
+  top: 5.07%;
+  left: 20.8%;
+  display: flex;
+  width: 58.1%;
+  height: 2.1%;
+  align-items: center;
+  justify-content: center;
+  color: #00d189;
+  font-family: "Slackey", sans-serif;
+  font-size: min(1.65vw, 32px);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.contract-copy-button {
+  z-index: 4;
+  top: 5.2%;
+  left: 79.5%;
+  width: 6.5%;
+  height: 1.9%;
+  cursor: pointer;
+}
+
+.meme-cat-effect {
+  z-index: 3;
+  display: block;
+  cursor: default;
+  border-radius: 45%;
+  transition: backdrop-filter 180ms ease;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes feed-to-cat {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  72% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--feed-x), var(--feed-y)) scale(.16) rotate(18deg);
+  }
+}
+
+@keyframes kibble-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -18%;
+  }
+}
+
+@keyframes pump-normal-feedback {
+  0%,
+  68% {
+    opacity: 0;
+  }
+
+  69%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pump-pressed-feedback {
+  0%,
+  68% {
+    opacity: 1;
+  }
+
+  69%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.meme-cat-effect:hover {
+  backdrop-filter: brightness(1.06);
+}
+
+@media (max-width: 767px) {
+  .desktop-design {
+    display: none;
+  }
+
+  .mobile-design {
+    display: block;
+  }
+
+  .body-stage-mobile .contract-address {
+    top: 4.57%;
+    left: 3.87%;
+    width: 83.3%;
+    height: 1.42%;
+    font-size: 2.4vw;
+  }
+
+  .body-stage-mobile .contract-copy-button {
+    top: 4.55%;
+    left: 89.5%;
+    width: 8%;
+    height: 1.35%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kibble-floater,
+  .kibble-hitbox.is-eaten .kibble-flight {
+    animation-duration: 1ms;
+  }
+
+  .figma-kline-wick,
+  .figma-kline-body,
+  .animated-ceiling-break,
+  .header-icon,
+  .mobile-header-x {
+    transition-duration: 1ms;
+  }
+
+  .meme-cat-effect {
+    transition-duration: 1ms;
+  }
+}

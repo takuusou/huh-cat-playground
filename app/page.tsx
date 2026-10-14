@@ -7,7 +7,6 @@ import type { CSSProperties, MouseEvent } from "react";
 
 const FIGMA_ROOT = "/figma-assets";
 const KIBBLE_TOTAL = 8;
-const CONTRACT_ADDRESS = "";
 
 type LineLevel = "default" | "small" | "top";
 type PumpCycle = "idle" | "small" | "burst";
@@ -189,16 +188,14 @@ function Hero({
   const kibbles = isDesktop ? desktopKibbles : mobileKibbles;
   const cat = isDesktop ? desktopCat : mobileCat;
   const pump = isDesktop ? desktopPump : mobilePump;
-  const xLink = (
-    <a
+  const xIcon = (
+    <span
       className={isDesktop ? "header-icon" : "mobile-header-x"}
-      href="https://x.com/Huh_World"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="Huh World on X"
+      role="img"
+      aria-label="X"
     >
       <img src={`${FIGMA_ROOT}/header-icon-complete-1.png`} alt="" />
-    </a>
+    </span>
   );
 
   return (
@@ -214,11 +211,11 @@ function Hero({
       />
 
       {isDesktop ? (
-        <div className="header-icons" aria-label="Social links">
-          {xLink}
+        <div className="header-icons">
+          {xIcon}
         </div>
       ) : (
-        xLink
+        xIcon
       )}
 
       {!isDesktop &&
@@ -329,25 +326,12 @@ function Body({ variant }: { variant: "desktop" | "mobile" }) {
   const height = isDesktop ? 5149 : 2046;
   const memeCats = isDesktop ? desktopMemeCats : mobileMemeCats;
 
-  const copyContract = () => {
-    if (!CONTRACT_ADDRESS) return;
-    void navigator.clipboard.writeText(CONTRACT_ADDRESS);
-  };
-
   return (
     <section className={`body-stage body-stage-${variant}`}>
       <img
         className="figma-body-art"
         src={`${FIGMA_ROOT}/${variant}-body.png`}
         alt="Huh moments, project introduction and Huh Cat artwork"
-      />
-
-      <span className="contract-address">{CONTRACT_ADDRESS ? `CA:${CONTRACT_ADDRESS}` : ""}</span>
-      <button
-        className="contract-copy-button"
-        type="button"
-        onClick={copyContract}
-        aria-label="Copy contract address"
       />
 
       {memeCats.map((cat, index) => (

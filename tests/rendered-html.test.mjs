@@ -63,9 +63,8 @@ test("keeps the replica self-contained", async () => {
   assert.match(css, /\.kibble-hitbox\.is-eaten \.kibble-flight/);
   assert.match(css, /\.line-top \.figma-kline-wick/);
   assert.match(css, /\.pump-burst\.line-top \.animated-ceiling-break/);
-  assert.match(page, /const CONTRACT_ADDRESS = ""/);
-  assert.match(page, /navigator\.clipboard\.writeText\(CONTRACT_ADDRESS\)/);
-  assert.match(page, /href="https:\/\/x\.com\/Huh_World"/);
+  assert.doesNotMatch(page, /https:\/\/x\.com/);
+  assert.match(page, /aria-label="X"/);
   assert.doesNotMatch(page, /header-icon-complete-[23]\.png/);
   assert.match(page, /mobile-header-x/);
   assert.match(page, /mobile-kibble-mask/);

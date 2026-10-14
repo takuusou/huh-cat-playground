@@ -368,42 +368,13 @@ img {
   height: 100%;
 }
 
-.body-overlay,
-.contract-address,
-.contract-copy-button {
+.body-overlay {
   position: absolute;
 }
 
 .body-overlay {
   z-index: 2;
   object-fit: fill;
-}
-
-.contract-address {
-  z-index: 3;
-  top: 5.07%;
-  left: 20.8%;
-  display: flex;
-  width: 58.1%;
-  height: 2.1%;
-  align-items: center;
-  justify-content: center;
-  color: #00d189;
-  font-family: "Slackey", sans-serif;
-  font-size: min(1.65vw, 32px);
-  font-weight: 400;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  white-space: nowrap;
-}
-
-.contract-copy-button {
-  z-index: 4;
-  top: 5.2%;
-  left: 79.5%;
-  width: 6.5%;
-  height: 1.9%;
-  cursor: pointer;
 }
 
 .meme-cat-effect {
@@ -488,20 +459,6 @@ img {
     display: block;
   }
 
-  .body-stage-mobile .contract-address {
-    top: 4.57%;
-    left: 3.87%;
-    width: 83.3%;
-    height: 1.42%;
-    font-size: 2.4vw;
-  }
-
-  .body-stage-mobile .contract-copy-button {
-    top: 4.55%;
-    left: 89.5%;
-    width: 8%;
-    height: 1.35%;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

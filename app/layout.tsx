@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { headers } from "next/headers";
 import "./globals.css";
 
-const title = "Huh Cat with a Green Stick to Pump ($huh)";
+const title = "Huh Cat — Interactive Playground";
 const description =
-  "$Huh is the token for Huh Cat with a Green Stick to Pump, inspired by the famous Huh Cat video.";
+  "An interactive web design project featuring hand-drawn cats, playful animation and sound. No real contract address or token functionality.";
 
 export async function generateMetadata(): Promise<Metadata> {
   const requestHeaders = await headers();

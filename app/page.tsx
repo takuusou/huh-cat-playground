@@ -314,7 +314,7 @@ function Hero({
       </button>
 
       <div className="sr-only">
-        <h1>Huh Cat with a Green Stick to Pump ($huh)</h1>
+        <h1>Huh Cat — Interactive Playground</h1>
       </div>
     </section>
   );
@@ -333,6 +333,14 @@ function Body({ variant }: { variant: "desktop" | "mobile" }) {
         src={`${FIGMA_ROOT}/${variant}-body.png`}
         alt="Huh moments, project introduction and Huh Cat artwork"
       />
+
+      <h2 className="about-heading">About Huh Cat</h2>
+      <p className="about-copy">
+        A hand-drawn interactive web design project. Feed the cat and press PUMP
+        to explore animation and sound. This project has no real contract address
+        (CA), provides no token, trading or wallet functionality, and is not
+        affiliated with any market meme coin.
+      </p>
 
       {memeCats.map((cat, index) => (
         <span
@@ -493,11 +501,6 @@ export default function Home() {
         <h2>Huh Moment for pepe</h2>
         <h2>Huh Moment for WIF</h2>
         <h2>Huh Moment for Bonk</h2>
-        <h2>What’s $Huh?</h2>
-        <p>
-          $Huh is the token for Huh Cat with a Green Stick to Pump, inspired by
-          the famous Huh Cat video.
-        </p>
       </div>
     </main>
   );

@@ -31,10 +31,12 @@ test("server-renders the complete Huh Cat landing page", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>Huh Cat with a Green Stick to Pump \(\$huh\)<\/title>/i);
+  assert.match(html, /<title>Huh Cat — Interactive Playground<\/title>/i);
   assert.match(html, /powered by Robinhood/);
   assert.match(html, /Huh Moment for/);
-  assert.match(html, /What’s \$Huh\?/);
+  assert.match(html, /About Huh Cat/);
+  assert.doesNotMatch(html, /is the token|Huh_World|0x[a-f0-9]{40}/i);
+  assert.doesNotMatch(html, /<a(?:\s|>)/);
   assert.match(html, /Feed Huh Cat kibble 8/);
   assert.match(html, /figma-assets\/desktop-hero\.png/);
   assert.match(html, /figma-assets\/mobile-body\.png/);
@@ -42,7 +44,7 @@ test("server-renders the complete Huh Cat landing page", async () => {
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/);
 });
 
-test("keeps the replica self-contained", async () => {
+test("uses local assets and keeps navigation disabled", async () => {
   const [page, layout, css, packageJson] = await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
@@ -89,7 +91,7 @@ test("keeps the replica self-contained", async () => {
     access(new URL("../public/figma-assets/HUH.mp3", import.meta.url)),
     access(new URL("../public/figma-assets/HUH-huh-huh.mp3", import.meta.url)),
     access(new URL("../public/figma-assets/ceiling-break.png", import.meta.url)),
-    access(new URL("../public/figma-assets/header-icon-complete-3.png", import.meta.url)),
+    access(new URL("../public/figma-assets/header-icon-complete-1.png", import.meta.url)),
     access(new URL("../public/figma-assets/pump-normal.png", import.meta.url)),
     access(new URL("../public/figma-assets/pump-pressed.png", import.meta.url)),
   ]);
